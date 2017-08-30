@@ -1,3 +1,21 @@
-<p>
-  exit works!
-</p>
+<div class="entry-form well" style="margin-top: 5%;margin-left: 20%">
+	<form class="form-inline" (ngSubmit)="getInvoice()">
+		<label class="sr-only" for="inlineFormInput">Vehicle Number</label>
+		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Vehicle Number" name="vehicleNo" [(ngModel)]='vehicleNo'>
+		<label class="sr-only" for="inlineFormInputGroup">Vehicle Number</label>
+		<button type="submit" class="btn btn-primary">Invoice</button>
+	</form>
+</div>
+<hr>
+<div class="container" *ngIf="invoice.vehicleNo" style="margin-left: 10% ">
+	<table class="table">
+		<h3> Invoice for {{invoice.vehicleNo}}</h3>
+		<tr><th>Vehicle Number</th> <td>{{invoice.vehicleNo}}</td></tr>
+		<tr><th>Number of wheels</th> <td>{{invoice.wheels}}</td></tr>
+		<tr><th>Entry Time</th> <td>{{invoice.entry_time }}</td></tr>
+		<tr><th>Exit Time</th> <td>{{invoice.exit_time }}</td></tr>
+		<tr><th>Number of hours</th> <td>{{invoice.hours}}</td></tr>
+		<tr><th>Amount</th> <td>{{invoice.amount}}</td></tr>
+		<tr  align="center"><th colspan="3"><button class="btn btn-sm btn-primary" (click)="updatePayment(invoice.vehicleNo)"> Paid</button></th></tr>
+	</table>
+</div>

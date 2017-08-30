@@ -1,0 +1,28 @@
+<div class="container-fluid" style="width: 800px;">
+	<ngb-alert *ngIf="successMessage" [type]="'success'" (close)="closeAlert()"><h4 class="center-font"></h4>{{ successMessage }}</ngb-alert>
+	<ngb-alert *ngIf="errorMessage" [type]="'danger'" (close)="closeAlert()"><h4 class="center-font"></h4>{{ errorMessage }}</ngb-alert>
+</div>
+
+<div class="entry-form well" style="margin-top: 5%;margin-left: 20%">
+	<form class="form-inline" (ngSubmit)="addVehicle()" #entryForm="ngForm">
+		<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+			<div class="input-group-addon"><i class="fa fa-car"></i></div>
+			<input type="text" name="vehicleNo" class="form-control" required minlength="4" 
+					id="inlineFormInputGroup" placeholder="Vehicle Number" [(ngModel)]="newVehicle.vehicleNo">
+		</div>
+		<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+			<select class="custom-select" name="wheels" [(ngModel)]="newVehicle.wheels">
+				<option value="2" selected>Two Wheeler</option>
+				<option value="3">Three Wheeler</option>
+				<option value="4">Four Wheeler</option>
+				<option value="6">Six Wheeler</option>
+				<option value="8">Eight Wheeler</option>
+				<option value="Other">Other</option>
+			</select>
+		</div>
+		
+		<input type="submit" class="btn btn-primary " value="Enter" [disabled]="!entryForm.valid">
+
+
+	</form>
+</div>

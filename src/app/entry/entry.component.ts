@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 
+
+
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.css'],
-	providers: [VehicleService]
+  styleUrls: ['./entry.component.css']
 })
 export class EntryComponent implements OnInit {
 
@@ -13,5 +14,28 @@ export class EntryComponent implements OnInit {
 
   ngOnInit() {
   }
+  newVehicle = {vehicleNo: null,wheels: "Choose Wheels"}
+  successMessage;
+  errorMessage;
+
+  addVehicle(){
+    this.closeAlert();
+    let response = this.vehicleService.addVehicle(this.newVehicle);
+    if(response.status)
+    {
+      this.successMessage = "Vehicle entered in records."
+      this.newVehicle = {vehicleNo: null,wheels: "Choose Wheels"}
+    }
+    else{
+      this.errorMessage = "Vehicle existed in records."
+    }
+  }
+
+  closeAlert(){
+    this.successMessage = undefined;
+    this.errorMessage = undefined;
+  }
+
+  
 
 }

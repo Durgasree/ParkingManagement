@@ -1,10 +1,11 @@
 
-<div class="container" style="top: 10mm">
+<div class="container-fluid" style="top: 10mm;margin: 1mm">
   <table class="table table-primary">
     <thead class="thead-primary">
       <tr>
         <th>#</th>
         <th>Vehicle No</th>
+        <th>No.Of Wheels</th>
         <th>Entry Time</th>
         <th>Exit Time</th>
         <th>Hours</th>
@@ -13,14 +14,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>APJ12312</td>
-        <td> 2017-08-29 18:24:35 </td>
-        <td> 2017-08-29 18:24:35 </td>
-        <td> 2 </td>
-        <td> 20 </td>
-        <td> Paid </td>
+      <tr *ngFor="let vehicle of vehicles; let i = index" [attr.data-index]="i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{vehicle.vehicleNo}}</td>
+        <td>{{vehicle.wheels}}</td>
+        <td>{{vehicle.entry_time}}</td>
+        <td>{{vehicle.exit_time}}</td>
+        <td>{{vehicle.hours}}</td>
+        <td>{{vehicle.amount}}</td>
+        <td>{{vehicle.status}}</td>
       </tr>
     </tbody>
   </table>
