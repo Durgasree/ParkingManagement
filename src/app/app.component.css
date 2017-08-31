@@ -1,3 +1,30 @@
 .center-font{
     text-align: center !important;
 }
+
+.bg-custom{
+    background-color: #e3f2fd;
+    height: 1000px;
+}
+
+.header{
+    background-color: rgb(99, 208, 42) !important;
+    margin-left: 20mm;
+    margin-right: 20mm;
+    margin-top: 5px;
+    height: 200px;
+}
+
+.whitecolor-links {
+    color: white!important;margin-left: 10mm
+}
+
+.entry-block .output_box{
+    margin-left: 20mm;
+    margin-right: 20mm;
+    border: 1px solid #87D802;
+    height: 100%;
+    margin-bottom: 50mm;
+}
+
+

@@ -23,10 +23,10 @@ export class VehicleService {
   }
 
   addVehicle(params): any{
-    let newVehicle = { vehicleNo: params["vehicleNo"],wheels: params["wheels"],
+    let newVehicle = { vehicleNo: params["vehicleNo"].toLocaleUpperCase(),wheels: params["wheels"],
             entry_time: this.getCurrentTime(),exit_time: null,
             hours: null,amount: null,status: this.PENDING}
-    if(this.getVehicle(params["vehicleNo"])){
+    if(this.getVehicle(params["vehicleNo"].toLocaleUpperCase())){
       return {status: false}
     }
     else

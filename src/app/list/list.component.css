@@ -1,0 +1,22 @@
+.listdiv{
+    top: 10mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+}
+h1{
+    text-align: center;
+    margin: 30px;
+}
+
+.listdiv{
+    
+    /*background-color: rgb(99, 208, 42) !important;*/
+    
+    border-style: solid;
+    border-color: rgb(99, 208, 42) !important;
+}
+
+.gbg-color{
+   color: white;
+   background-color: rgb(99, 208, 42) !important;
+}
