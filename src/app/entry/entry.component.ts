@@ -14,7 +14,7 @@ export class EntryComponent implements OnInit {
 
   ngOnInit() {
   }
-  newVehicle = {vehicleNo: null,wheels: "Choose Wheels"}
+  newVehicle = {vehicleNo: null,wheels: "2"}
   successMessage;
   errorMessage;
 
@@ -24,7 +24,7 @@ export class EntryComponent implements OnInit {
     if(response.status)
     {
       this.successMessage = "Vehicle entered in records."
-      this.newVehicle = {vehicleNo: null,wheels: "Choose Wheels"}
+      this.newVehicle = {vehicleNo: null,wheels: "2"}
     }
     else{
       this.errorMessage = "Vehicle existed in records."

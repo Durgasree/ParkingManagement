@@ -1,8 +1,23 @@
 
 <div class="container-fluid listdiv">
-  <!--<h1 class="gbg-color"> Vehicles List </h1>-->
+  <div class="pull-right">
+    <form class="form-inline search-form" (ngSubmit)="filterVehicles()" #filterForm="ngForm">
+      <label class="mr-sm-2" for="inlineFormCustomSelect"> <button class="btn btn-sm btn-success" (click)="clearSearch()"> All </button> </label>      
+      <input type="text" class="form-control" id="vehicleno" placeholder="Vehicle Number" name="Vehicle Number" [(ngModel)]="searchData.vehicleNo">
+      <select class="custom-select" name="status"  [(ngModel)]="searchData.status">
+        <option selected>Payment Status</option>
+        <option value="PENDING">Pending</option>
+        <option value="PAID">Paid</option>
+      </select>
+      <button type="submit" class="btn btn-sm btn-success"  [disabled]="!filterForm.valid"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <hr>
+
   <table class="table table-primary">
+   
     <thead class="thead-primary gbg-color">
+      
       <tr>
         <th>#</th>
         <th>Vehicle No</th>
@@ -15,7 +30,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vehicle of vehicles; let i = index" [attr.data-index]="i">
+      <tr *ngIf="vehicles"> <th colspan="8"> 
+        <ngb-alert *ngIf="vehicles.length < 1" [type]="'danger'"><h6 class="center-font">  No vehicles in the list </h6> </ngb-alert>       
+      </th></tr>
+      
+      <tr *ngFor="let vehicle of pagedVehicles ; let i = index" [attr.data-index]="i" >
         <th scope="row">{{i+1}}</th>
         <td>{{vehicle.vehicleNo}}</td>
         <td>{{vehicle.wheels}}</td>
@@ -27,4 +46,9 @@
       </tr>
     </tbody>
   </table>
+
+  <div class=" marginAutoLR">
+    <!--<ngb-pagination [collectionSize]="vehicles.length " [(page)]="page" aria-label="Default pagination"></ngb-pagination>-->
+    <ngb-pagination class="gbg-color" [collectionSize]="vehicles.length" [pageSize]="5" [(page)]="page" [maxSize]="7" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+  </div>
 </div>

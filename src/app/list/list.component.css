@@ -3,20 +3,44 @@
     margin-left: 20mm;
     margin-right: 20mm;
 }
+
+.search-form{
+    margin-top: 20px;
+}
+
 h1{
     text-align: center;
     margin: 30px;
 }
 
 .listdiv{
-    
-    /*background-color: rgb(99, 208, 42) !important;*/
-    
     border-style: solid;
     border-color: rgb(99, 208, 42) !important;
+}
+
+ngb-pagination /deep/  .page-item.active .page-link {
+    background-color: rgb(99, 208, 42) !important;
+}
+
+ngb-pagination /deep/ .page-item {
+    color:  rgb(99, 208, 42) !important;
 }
 
 .gbg-color{
    color: white;
    background-color: rgb(99, 208, 42) !important;
+}
+input,select {
+    margin: 15px;
+}
+
+.center-font{
+  text-align: center;
+}
+.marginAutoLR
+{
+   width:300px;
+    margin-right:auto;
+    margin-left:auto;
+
 }

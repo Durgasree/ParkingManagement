@@ -7,12 +7,12 @@
 	<form class="form-inline" (ngSubmit)="addVehicle()" #entryForm="ngForm">
 		<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 			<div class="input-group-addon"><i class="fa fa-car"></i></div>
-			<input type="text" name="vehicleNo" class="form-control" required minlength="4" 
+			<input type="text" name="vehicleNo" class="form-control" required minlength="1" 
 					id="inlineFormInputGroup" placeholder="Vehicle Number" [(ngModel)]="newVehicle.vehicleNo">
 		</div>
 		<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 			<select class="custom-select" name="wheels" [(ngModel)]="newVehicle.wheels">
-				<option value="2" selected>Two Wheeler</option>
+				<option value="2">Two Wheeler</option>
 				<option value="3">Three Wheeler</option>
 				<option value="4">Four Wheeler</option>
 				<option value="6">Six Wheeler</option>

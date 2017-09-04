@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
 import { EntriesComponent } from './entries/entries.component';
-import {RouterModule,Routes} from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { EntryComponent } from './entry/entry.component';
 import { ExitComponent } from './exit/exit.component';
 import { ListComponent } from './list/list.component';
 import { VehicleService } from './vehicle.service'
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from './app.component';
+
 
 const routes: Routes = [
-  {path: '',redirectTo: 'entries/entry',pathMatch: 'full'},
+  {path: '', redirectTo: 'entries/entry',pathMatch: 'full'},
   {path: 'list', component: ListComponent},
   {path: 'entries',component: EntriesComponent,children: [
     {path: 'entry',component: EntryComponent},
@@ -21,6 +21,7 @@ const routes: Routes = [
   }
 ]
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,15 +29,13 @@ const routes: Routes = [
     EntryComponent,
     ExitComponent,
     ListComponent,
-  
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(
-      routes
-    )
+    RouterModule.forRoot(routes)
   ],
   providers: [VehicleService],
   bootstrap: [AppComponent]
